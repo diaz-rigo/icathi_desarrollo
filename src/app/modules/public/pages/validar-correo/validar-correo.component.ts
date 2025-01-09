@@ -3,10 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ValidarCorreoService } from '../../../../shared/services/validar-correo.service';
 import { ModalTaiwilService } from '../../../../shared/services/modal-taiwil.service';
 import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from '../../../../shared/services/auth.service';
+import { StorageService } from '../../../../shared/services/storage.service';
 
 @Component({
-    selector: 'app-validar-correo',
-    template: `
+  selector: 'app-validar-correo',
+  template: `
     <div class="container mx-auto text-center mt-12">
       <!-- Mensaje de éxito -->
       <div *ngIf="!loading && mensaje" class="bg-[#D8566C] text-white p-6 rounded-lg shadow-lg">
@@ -22,8 +24,8 @@ import { isPlatformBrowser } from '@angular/common';
       </div>
     </div>
   `,
-    styles: [],
-    standalone: false
+  styles: [],
+  standalone: false
 })
 export class ValidarCorreoComponent implements OnInit {
   mensaje: string | null = null;
@@ -35,8 +37,8 @@ export class ValidarCorreoComponent implements OnInit {
     private route: ActivatedRoute,
     private validarCorreoService: ValidarCorreoService,
     private modalTaiwilService: ModalTaiwilService,
-    private router: Router
-  ) {}
+    private router: Router, private storageService: StorageService
+  ) { }
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
@@ -57,9 +59,9 @@ export class ValidarCorreoComponent implements OnInit {
           this.mensaje = response.message;
 
           if (typeof window !== 'undefined' && window.sessionStorage) {
-            sessionStorage.setItem('userId', response.userId);
-            sessionStorage.setItem('userEmail', response.userEmail);
-            sessionStorage.setItem('userRole', response.role); // Guardar el rol
+            this.storageService.setItem('userId', response.userId);
+            this.storageService.setItem('userEmail', response.userEmail);
+            this.storageService.setItem('userRole', response.role); // Guardar el rol
           }
 
           // Mostrar modal de éxito
