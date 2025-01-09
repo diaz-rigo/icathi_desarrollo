@@ -4,10 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AspiranteService } from '../../../../shared/services/aspirante.service';
 
 @Component({
-    selector: 'app-inicio',
-    templateUrl: './inicio.component.html',
-    styleUrls: ['./inicio.component.scss'],
-    standalone: false
+  selector: 'app-inicio',
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent {
   alumnoData: any = null; // Datos del alumno cargados
