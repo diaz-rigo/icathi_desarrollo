@@ -4,10 +4,9 @@ import { PlantelesService } from '../../../../../shared/services/planteles.servi
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-frm-plantel',
-    templateUrl: './frm-plantel.component.html',
-    styleUrl: './frm-plantel.component.scss',
-    standalone: false
+  selector: 'app-frm-plantel',
+  templateUrl: './frm-plantel.component.html',
+  styleUrl: './frm-plantel.component.scss',
 })
 export class FrmPlantelComponent {
   formPlantel: FormGroup;
