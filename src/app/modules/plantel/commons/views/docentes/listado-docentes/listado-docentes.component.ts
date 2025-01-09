@@ -1,32 +1,26 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../../../../../environments/environment.prod';
-import { AuthService } from '../../../../../../shared/services/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-listado-docentes',
-    templateUrl: './listado-docentes.component.html',
-    styles: [
-        `
-      #addModal {
-        animation: fadeIn 0.3s ease-in-out;
-      }
+  selector: 'app-listado-docentes',
+  templateUrl: './listado-docentes.component.html',
+  styles: [`
+    #addModal {
+      animation: fadeIn 0.3s ease-in-out;
+    }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
       }
-    `,
-    ],
-    standalone: false
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  `],
 })
-export class ListadoDocentesComponent implements OnInit{
+export class ListadoDocentesComponent {
   // Variables de filtro
   textoBusqueda: string = '';
   fechaInicio: string = '';
@@ -46,41 +40,39 @@ export class ListadoDocentesComponent implements OnInit{
   };
 
   // Datos de ejemplo
-  docentes: any[] = []; // Lista de docentes obtenida del servidor
-// textoBusqueda!: string = ''; // Texto de búsqueda
+  docentes = [
+    {
+      id: '#101',
+      nombre: 'Carlos',
+      apellidos: 'Pérez',
+      email: 'carlos.perez@example.com',
+      telefono: '123456789',
+      especialidad: 'Matemáticas',
+      estatus: 'Activo',
+    },
+    {
+      id: '#102',
+      nombre: 'María',
+      apellidos: 'López',
+      email: 'maria.lopez@example.com',
+      telefono: '987654321',
+      especialidad: 'Ciencias',
+      estatus: 'Inactivo',
+    },
+  ];
 
-
-  constructor(private https: HttpClient, private authS_: AuthService) {}
-
-
-  ngOnInit(): void {
-    // Cargar los datos de docentes al iniciar el componente
-    this.authS_.getIdFromToken().then((idPlantel) => {
-      this.https
-        .get<any>(
-          `${environment.api}/curso-docente/byIdPlantel/${idPlantel?.toString()}/docentes`
-        )
-        .subscribe((response) => {
-          // Extraer el array 'data' de la respuesta
-          this.docentes = response.data || []; // Asegúrate de que siempre sea un array
-        });
-    });
-  }
-
-  // Método para filtrar los docentes
-  docentesFiltrados(): any[] {
-    if (!this.textoBusqueda) {
-      return this.docentes; // Si no hay búsqueda, devuelve la lista completa
-    }
-
-    return this.docentes.filter((docente: any) => {
+  // Filtrar docentes
+  docentesFiltrados() {
+    return this.docentes.filter(docente => {
       const coincideBusqueda =
-        docente.docente_nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
+        docente.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) ||
         docente.apellidos.toLowerCase().includes(this.textoBusqueda.toLowerCase());
-      return coincideBusqueda;
+      const coincideFecha = true; // Puedes agregar filtro por fechas si lo necesitas
+      return coincideBusqueda && coincideFecha;
     });
   }
-   // Abrir/Cerrar modal
+
+  // Abrir/Cerrar modal
   abrirModal() {
     this.esModalVisible = true;
   }
