@@ -6,10 +6,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 @Component({
-    selector: 'app-listado-planteles',
-    templateUrl: './listado-planteles.component.html',
-    styleUrls: ['./listado-planteles.component.scss'],
-    standalone: false
+  selector: 'app-listado-planteles',
+  templateUrl: './listado-planteles.component.html',
+  styleUrls: ['./listado-planteles.component.scss'],
 })
 export class ListadoPlantelesComponent implements OnInit {
   planteles: any; // Lista de planteles
