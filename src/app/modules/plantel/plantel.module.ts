@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { PlantelRoutingModule } from './plantel-routing.module';
 import { PlantelComponent } from './plantel.component';
@@ -14,8 +14,6 @@ import { CommonsModule } from './commons/commons.module';
   imports: [RouterModule,
     CommonsModule,
     PlantelRoutingModule
-  ],  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ]
 })
 export class PlantelModule { }
