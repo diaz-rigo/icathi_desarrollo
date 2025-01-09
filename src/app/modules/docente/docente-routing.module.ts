@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DocenteComponent } from './docente.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
+import { AlumnosCursosComponent } from './pages/alumnos/alumnos-cursos/alumnos-cursos.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
+import { AistenciasComponent } from './pages/aistencias/aistencias.component';
 
 const routes: Routes = [
   {
@@ -14,7 +17,6 @@ const routes: Routes = [
     path: '',
     component: DocenteComponent,
     children: [
-
       {
         path: 'perfil',
         component: ProfileComponent,
@@ -23,14 +25,14 @@ const routes: Routes = [
         path: 'home',
         component: CoursesComponent,
       },
-      // {
-      // path: 'control-productos',
-      // children: [
-      // {
-      //   path: 'lista-planteles',
-      //   component: ListadoPlantelesComponent,
-      // },
-
+      {
+        path: 'alumnos-cursos',
+        component: AlumnosCursosComponent,
+      },
+      {
+        path: 'asistencias/:id',
+        component: AistenciasComponent,
+      },
 
     ],
   },
