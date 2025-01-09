@@ -5,10 +5,9 @@ import { AspiranteService } from '../../../../shared/services/aspirante.service'
 import { AlumnosCursosService } from '../../../../shared/services/alumnos-cursos.service';
 
 @Component({
-    selector: 'app-clases',
-    templateUrl: './clases.component.html',
-    styleUrls: ['./clases.component.scss'],
-    standalone: false
+  selector: 'app-clases',
+  templateUrl: './clases.component.html',
+  styleUrls: ['./clases.component.scss']
 })
 export class ClasesComponent {
 
