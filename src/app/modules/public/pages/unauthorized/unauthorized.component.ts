@@ -3,11 +3,9 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-unauthorized',
-    templateUrl: './unauthorized.component.html',
-    styleUrls: ['./unauthorized.component.scss'] // Corregido: styleUrl -> styleUrls
-    ,
-    standalone: false
+  selector: 'app-unauthorized',
+  templateUrl: './unauthorized.component.html',
+  styleUrls: ['./unauthorized.component.scss'] // Corregido: styleUrl -> styleUrls
 })
 export class UnauthorizedComponent {
   constructor(private location: Location, private router: Router) {}
