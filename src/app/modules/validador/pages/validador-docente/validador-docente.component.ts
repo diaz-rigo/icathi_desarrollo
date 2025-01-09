@@ -6,11 +6,9 @@ import { catchError, throwError } from 'rxjs';
 import { Docente } from '../../interfaces/docente.model';
 
 @Component({
-    selector: 'app-validador-docente',
-    templateUrl: './validador-docente.component.html',
-    styleUrls: ['./validador-docente.component.scss'] // Cambiado a styleUrls
-    ,
-    standalone: false
+  selector: 'app-validador-docente',
+  templateUrl: './validador-docente.component.html',
+  styleUrls: ['./validador-docente.component.scss'] // Cambiado a styleUrls
 })
 export class ValidadorDocenteComponent {
   currentDate = new Date().toLocaleDateString('es-ES', {
