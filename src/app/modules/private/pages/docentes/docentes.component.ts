@@ -21,10 +21,9 @@ export interface Docente {
 }
 
 @Component({
-    selector: 'app-docentes',
-    templateUrl: './docentes.component.html',
-    styleUrls: ['./docentes.component.scss'],
-    standalone: false
+  selector: 'app-docentes',
+  templateUrl: './docentes.component.html',
+  styleUrls: ['./docentes.component.scss'],
 })
 export class DocentesComponent implements OnInit {
   docentes: Docente[] = [];
