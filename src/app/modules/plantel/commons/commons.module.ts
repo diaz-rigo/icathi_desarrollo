@@ -11,19 +11,11 @@ import { CursosdocentesService } from '../../../shared/services/cursosdocentes.s
 import { FilterPipe } from '../../../shared/pipes/filter.pipe';
 import { ListadoCursosAprovadosComponent } from './views/cursos/listado-cursos-aprovados/listado-cursos-aprovados.component';
 import { HistorialComponent } from './views/cursos/historial/historial.component';
-import { RegistroAlumnosComponent } from './views/alumnos/registro-alumnos/registro-alumnos.component';
-// import { RegistroDeocen}teComponent } from './views/docentes/registro-deocente/registro-deocente.component';
-import { RegistroDocenteComponent } from './views/docentes/registro-docente/registro-docente.component';
 
-// import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { ImpartidosComponent } from './views/cursos/impartidos/impartidos.component';
-
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
-  declarations: [    FilterPipe,ListadoAlumnosComponent,ListadoCursosComponent,HomeComponent,ListadoDocentesComponent, ListadoCursosAprovadosComponent, HistorialComponent, RegistroAlumnosComponent, RegistroDocenteComponent, ImpartidosComponent],
-  imports: [PdfViewerModule,
+  declarations: [    FilterPipe,ListadoAlumnosComponent,ListadoCursosComponent,ListadoDocentesComponent, ListadoCursosAprovadosComponent, HistorialComponent],
+  imports: [
     CommonModule,ReactiveFormsModule,FormsModule,RouterModule,
   ],
   providers:[AuthService,DocenteService,CursosdocentesService]
