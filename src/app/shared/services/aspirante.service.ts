@@ -4,9 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AspiranteService {
+
   private apiUrl = `${environment.api}/aspirante/registro`;
 
   constructor(private http: HttpClient) {}
@@ -16,15 +17,8 @@ export class AspiranteService {
     return this.http.post(this.apiUrl, JSON.stringify(data), { headers });
   }
 
-  registrarAspiranteByPllantel(data: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${environment.api}/aspirante/registro/${data.plantel}`, JSON.stringify(data), { headers });
-  }
-
-
-
-  getApirantes(): Observable<any> {
-    return this.http.get(`${environment.api}/alumno`);
+  getApirantes():Observable<any>{
+    return this.http.get(`${environment.api}/alumno`)
   }
 
   // Obtener un alumno por su ID
@@ -32,17 +26,18 @@ export class AspiranteService {
     return this.http.get(`${environment.api}/alumno/usuario/${id}`);
   }
 
-  getApirantesBIdPlantel(id: any): Observable<any> {
+
+
+  getApirantesBIdPlantel(id:any):Observable<any>{
     // http://localhost:3000/alumnosPlantelCursos/byIdPlantel/3
-    return this.http.get(
-      `${environment.api}/PlantelCursos/byIdPlantel/${id}/alumnos`
-    );
+    return this.http.get(`${environment.api}/alumnosPlantelCursos/byIdPlantel/${id}`)
   }
-  // Nueva función para obtener el CURP por correo electrónico
-  obtenerCurpPorEmail(email: string): Observable<any> {
-    return this.http.get(`${environment.api}/aspirante/curp/${email}`);
-  } // Nueva función para obtener un alumno por su ID
-  getAlumnoById(id: number): Observable<any> {
-    return this.http.get(`${environment.api}/alumno/${id}`);
-  }
+// Nueva función para obtener el CURP por correo electrónico
+obtenerCurpPorEmail(email: string): Observable<any> {
+  return this.http.get(`${environment.api}/aspirante/curp/${email}`);
+}  // Nueva función para obtener un alumno por su ID
+getAlumnoById(id: number): Observable<any> {
+  return this.http.get(`${environment.api}/alumno/${id}`);
+}
+
 }
