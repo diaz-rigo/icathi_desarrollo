@@ -4,10 +4,9 @@ import { AspiranteService } from '../../../../shared/services/aspirante.service'
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    selector: 'app-perfil',
-    templateUrl: './perfil.component.html',
-    styleUrls: ['./perfil.component.scss'],
-    standalone: false
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html',
+  styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent {
 
