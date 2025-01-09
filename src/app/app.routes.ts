@@ -45,6 +45,7 @@ export const routes: Routes = [
   },
   {
     path: 'academico',
+
     loadChildren: () =>
       import(
         './modules/coordinador-academico/coordinador-academico.module'
