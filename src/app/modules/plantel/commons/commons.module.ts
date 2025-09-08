@@ -20,10 +20,18 @@ import { ImpartidosComponent } from './views/cursos/impartidos/impartidos.compon
 
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HomeComponent } from './views/home/home.component';
+import { SolicitudCursoComponent } from './views/cursos/solicitud-curso/solicitud-curso.component';
+
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
-  declarations: [    FilterPipe,ListadoAlumnosComponent,ListadoCursosComponent,HomeComponent,ListadoDocentesComponent, ListadoCursosAprovadosComponent, HistorialComponent, RegistroAlumnosComponent, RegistroDocenteComponent, ImpartidosComponent],
-  imports: [
+  declarations: [    FilterPipe,ListadoAlumnosComponent,ListadoCursosComponent,HomeComponent,ListadoDocentesComponent, ListadoCursosAprovadosComponent, HistorialComponent, RegistroAlumnosComponent, RegistroDocenteComponent, ImpartidosComponent, SolicitudCursoComponent],
+  imports: [TableModule,   // Para usar p-table
+    DialogModule,  // Para usar p-dialog
+    ButtonModule, RippleModule, // Para botones en el modal y en la vista
     CommonModule,ReactiveFormsModule,FormsModule,RouterModule,
   ],
   providers:[AuthService,DocenteService,CursosdocentesService]

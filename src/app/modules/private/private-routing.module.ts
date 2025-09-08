@@ -12,7 +12,9 @@ import { FrmPlantelComponent } from './pages/planteles/frm-plantel/frm-plantel.c
 import { ListadoPlantelesComponent } from './pages/planteles/listado-planteles/listado-planteles.component';
 import { DocentesComponent } from './pages/docentes/docentes.component';
 // import { ListadoCursosComponent } from './pages/listado-cursos/listado-cursos.component';
-import { PdfExampleComponent } from './pages/pdf-example/pdf-example.component';
+// import { PdfExampleComponent } from './pages/pdf-example/pdf-example.component';
+import { ViewerExplorerComponent } from './pages/viewer-explorer/viewer-explorer.component';
+import { AdminPostulacionesComponent } from './pages/admin-postulaciones/admin-postulaciones.component';
 
 const routes: Routes = [
   {
@@ -32,8 +34,8 @@ const routes: Routes = [
         component: ListadoPlantelesComponent,
       },
       {
-        path: 'pdf-example',
-        component:PdfExampleComponent ,
+        path: 'gestor-archivos',
+        component:ViewerExplorerComponent ,
       },
       {
         path: 'frm-plantel',
@@ -71,6 +73,10 @@ const routes: Routes = [
       {
         path: 'docentes',
         component: DocentesComponent,
+      },
+      {
+        path: 'postulaciones',
+        component: AdminPostulacionesComponent,
       },
     ],
   },
