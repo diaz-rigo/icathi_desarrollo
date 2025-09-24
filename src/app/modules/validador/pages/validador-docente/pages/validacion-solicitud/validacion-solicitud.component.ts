@@ -181,6 +181,20 @@ export class ValidacionSolicitudComponent {
         return 'bg-rose-100 text-rose-800';
     }
   }
+  estadoDocente(e: string): string {
+    switch (e) {
+      case 'Suspendido':
+        return 'bg-red-100 text-red-800';
+      case 'Activo':
+        return 'bg-emerald-100 text-emerald-800';
+      case 'Inactivo':
+        return 'bg-red-100 text-red-800';
+      case 'Pendiente de validación':
+        return 'bg-emerald-100 text-emerald-800';
+      default:
+        return 'bg-rose-100 text-rose-800';
+    }
+  }
 
   // trackById = (_: number, s: Solicitud) => s.id;
   // --- UI búsqueda ---
